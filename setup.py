@@ -10,14 +10,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mon-sdk",
+    name="tassi-python",
     version="0.1.0",
-    author="Votre Nom",
+    author="Tassi",
     author_email="votre.email@example.com",
     description="Description courte de votre SDK",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/votre-username/mon-sdk-python",
+    url="https://github.com/Tassi-pro/tassi-python",
     packages=setuptools.find_packages(),
     install_requires=required,
     classifiers=[
