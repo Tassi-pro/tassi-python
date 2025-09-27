@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
+requests = ">=2.25.0"
 
 [dev-packages]
 pytest = "*"
@@ -17,6 +17,7 @@ mock = "*"
 setuptools = "*"
 wheel = "*"
 twine = "*"
+requests = ">=2.25.0"
 
 [requires]
-python_version = "3.11"
+python_version = "3.8"
