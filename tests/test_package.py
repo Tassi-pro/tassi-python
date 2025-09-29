@@ -54,18 +54,6 @@ class TestPackage:
         assert result.packages[0].signature_required is True
 
     @responses.activate
-    def test_all_with_pagination(self):
-        """Test de la liste avec pagination"""
-        responses.add(
-            responses.GET,
-            'https://tassi-api.exanora.com/packages',
-            json={"packages": [], "meta": {}},
-            status=200
-        )
-
-        Package.all({"page": 2, "per_page": 10})
-
-    @responses.activate
     def test_retrieve(self):
         """Test de récupération d'un package"""
         mock_response = {

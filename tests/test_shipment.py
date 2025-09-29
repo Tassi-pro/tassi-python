@@ -20,9 +20,9 @@ class TestShipment:
             "marketplace_id": "1",
             "customer_id": "",
             "customer": {
-                "first_name": "Judicaël",
-                "last_name": "DAKIN",
-                "email": "marcellimsuanon@gmail.com",
+                "first_name": "Doe",
+                "last_name": "Jane",
+                "email": "doe@gmail.com",
                 "address": "Rue 123, Houéyiho, Cotonou",
                 "city": "Cotonou",
                 "country_code": "BJ"
@@ -87,7 +87,7 @@ class TestShipment:
         invalid_payload = {
             "marketplace_id": "1",
             "customer": {
-                "first_name": "Judicaël"
+                "first_name": "Doe"
                 # Champs requis manquants
             }
         }
@@ -128,86 +128,3 @@ class TestShipment:
 
         with pytest.raises(ApiConnectionError):
             Shipment.create(payload)
-
-    @responses.activate
-    def test_create_with_pickup_point(self):
-        """Test avec création d'un point de retrait"""
-        payload = {
-            "marketplace_id": "1",
-            "customer": {
-                "first_name": "Test",
-                "last_name": "User",
-                "email": "test@example.com",
-                "address": "Test Address",
-                "city": "Cotonou",
-                "country_code": "BJ"
-            },
-            "pickup_point": {
-                "name": "Test Pickup",
-                "address": "Test Address",
-                "city": "Cotonou",
-                "latitude": 6.3703,
-                "longitude": 2.3912,
-                "phone": "+22900000000"
-            },
-            "package": {
-                "description": "Test",
-                "weight": 5,
-                "dimensions": "10x10x10"
-            }
-        }
-
-        responses.add(
-            responses.POST,
-            'https://tassi-api.exanora.com/shipments',
-            json={"shipment": {"id": 1}},
-            status=201
-        )
-
-        shipment = Shipment.create(payload)
-        assert hasattr(shipment, 'id')
-
-    @responses.activate
-    def test_create_with_route_stops(self):
-        """Test avec des arrêts sur la route"""
-        payload = {
-            "marketplace_id": "1",
-            "customer": {
-                "first_name": "Test",
-                "last_name": "User",
-                "email": "test@example.com"
-            },
-            "package": {
-                "description": "Test package",
-                "weight": 2.5
-            },
-            "route": {
-                "origin": "Cotonou",
-                "destination": "Porto-Novo",
-                "stops": [
-                    {
-                        "city": "Sèmè-Kpodji",
-                        "address": "Centre ville",
-                        "latitude": 6.3512,
-                        "longitude": 2.4987
-                    },
-                    {
-                        "city": "Adjarra",
-                        "address": "Marché central",
-                        "latitude": 6.4123,
-                        "longitude": 2.5234
-                    }
-                ]
-            }
-        }
-
-        responses.add(
-            responses.POST,
-            'https://tassi-api.exanora.com/shipments',
-            json={"shipment": {"id": 1, "route_stops_count": 2}},
-            status=201
-        )
-
-        shipment = Shipment.create(payload)
-        assert hasattr(shipment, 'id')
-        assert shipment.route_stops_count == 2

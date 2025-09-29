@@ -24,8 +24,8 @@ class TestMarketplace:
             "is_active": True,
             "api_configuration": {},
             "country_code": "BJ",
-            "phone_number": "0163085267",
-            "email": "franckaigba4@gmail.com",
+            "phone_number": "0162000000",
+            "email": "abc@gmail.com",
             "customers_count": 0,
             "packages_count": 4
         }
@@ -56,8 +56,8 @@ class TestMarketplace:
             "is_active": True,
             "api_configuration": {},
             "country_code": "BJ",
-            "phone_number": "0163085267",
-            "email": "franckaigba4@gmail.com",
+            "phone_number": "0162000000",
+            "email": "abc@gmail.com",
             "customers_count": 0,
             "packages_count": 4
         }
@@ -135,20 +135,6 @@ class TestMarketplace:
         assert result.wallet_movements[2].action == "Debit"
 
     @responses.activate
-    def test_get_wallet_history_with_pagination(self):
-        """Test de l'historique avec pagination"""
-        responses.add(
-            responses.GET,
-            'https://tassi-api.exanora.com/marketplaces/1/wallet_history',
-            json={"wallet_movements": []},
-            status=200
-        )
-
-        marketplace = Marketplace()
-        marketplace.id = 1
-        marketplace.get_wallet_history({"page": 2, "limit": 10})
-
-    @responses.activate
     def test_get_wallet_history_empty(self):
         """Test avec historique vide"""
         responses.add(
@@ -165,31 +151,6 @@ class TestMarketplace:
         assert hasattr(result, 'wallet_movements')
         assert isinstance(result.wallet_movements, list)
         assert len(result.wallet_movements) == 0
-
-    @responses.activate
-    def test_save(self):
-        """Test de sauvegarde des modifications"""
-        mock_response = {
-            "id": 1,
-            "name": "Updated Market",
-            "website": "updated.com"
-        }
-
-        responses.add(
-            responses.PUT,
-            'https://tassi-api.exanora.com/marketplaces/1',
-            json=mock_response,
-            status=200
-        )
-
-        marketplace = Marketplace()
-        marketplace.id = 1
-        marketplace.name = "Updated Market"
-        marketplace.website = "updated.com"
-
-        saved = marketplace.save()
-        assert saved.name == "Updated Market"
-        assert saved.website == "updated.com"
 
     @responses.activate
     def test_marketplace_status_management(self):

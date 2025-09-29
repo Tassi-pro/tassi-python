@@ -123,6 +123,7 @@ for movement in wallet_history.wallet_movements:
 ### Ressources disponibles
 
 1. **Package** :
+
    - `all()` - Liste des packages
    - `retrieve(id)` - Récupérer un package
    - `update(id, params)` - Mettre à jour
@@ -130,6 +131,7 @@ for movement in wallet_history.wallet_movements:
    - `get_shipping_label(label_id)` - Étiquette d'expédition
 
 2. **Shipment** :
+
    - `create(params)` - Créer une expédition
 
 3. **Marketplace** :
@@ -216,9 +218,10 @@ Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
 ## 🆘 Support
 
-- **Documentation** : [docs.tassi.com](https://docs.tassi.com)
+<!-- - **Documentation** : [docs.tassi.com](https://docs.tassi.com) -->
+
 - **Issues** : [GitHub Issues](https://github.com/Tassi-pro/tassi-python/issues)
-- **Email** : dev@tassi.com
+<!-- - **Email** : dev@tassi.com -->
 
 ---
 
