@@ -213,12 +213,6 @@ pip install -e .[dev]
 
 # Lancer tous les tests
 pytest
-
-# Tests avec couverture
-pytest --cov=tassi
-
-# Tests avec rapport HTML
-pytest --cov=tassi --cov-report=html
 ```
 
 ## Structure du projet
