@@ -157,17 +157,3 @@ class Resource(TassiObject):
         url = self.instance_url()
         self.__class__._static_request('delete', url, {}, headers)
         return self
-
-    def _save(self, headers=None):
-        """Sauvegarde une ressource"""
-        if headers is None:
-            headers = {}
-
-        params = self.serialize_parameters()
-        url = self.instance_url()
-
-        response = self.__class__._static_request('put', url, params, headers)
-        # Pour save, on met à jour l'objet existant
-        if isinstance(response['data'], dict):
-            self.refresh_from(response['data'], response['options'])
-        return self

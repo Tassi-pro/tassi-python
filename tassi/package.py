@@ -31,12 +31,6 @@ class Package(Resource):
             headers = {}
         return cls._update(id, params, headers)
 
-    def save(self, headers=None):
-        """Sauvegarde le package"""
-        if headers is None:
-            headers = {}
-        return self._save(headers)
-
     def track(self, headers=None):
         """Suivi du package"""
         if headers is None:

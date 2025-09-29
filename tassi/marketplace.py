@@ -22,12 +22,6 @@ class Marketplace(Resource):
             headers = {}
         return cls._update(id, params, headers)
 
-    def save(self, headers=None):
-        """Sauvegarde la marketplace"""
-        if headers is None:
-            headers = {}
-        return self._save(headers)
-
     def get_wallet_history(self, params=None, headers=None):
         """Récupère l'historique du wallet"""
         if params is None:
