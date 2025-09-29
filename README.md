@@ -2,7 +2,93 @@
 
 SDK Python officiel pour l'API Tassi - Solution complète de logistique et d'expédition.
 
+> **Nouveau ?** Consultez le [Guide de démarrage rapide](QUICKSTART.md) pour une installation pas à pas.
+
+## Table des matières
+
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Utilisation](#utilisation)
+- [Ressources disponibles](#ressources-disponibles)
+- [Gestion des erreurs](#gestion-des-erreurs)
+- [Tests](#tests)
+- [Exemples](#exemples-complets)
+- [Support](#support-et-contribution)
+
 ## Installation
+
+> **Note:** Le package n'est pas encore disponible sur PyPI. Utilisez l'installation depuis GitHub.
+
+### Installation depuis GitHub
+
+#### Prérequis
+- Python 3.8 ou supérieur
+- Git installé
+- pip installé
+
+#### Installation directe
+
+```bash
+# Créer un environnement virtuel (recommandé)
+python3 -m venv venv
+
+# Activer l'environnement
+source venv/bin/activate  # Linux/Mac
+# OU
+venv\Scripts\activate     # Windows
+
+# Installer Tassi depuis GitHub
+pip install git+https://github.com/Tassi-pro/tassi-python.git
+```
+
+#### Installation avec requirements.txt
+
+Ajoutez dans votre `requirements.txt` :
+
+```txt
+# Tassi SDK depuis GitHub
+git+https://github.com/Tassi-pro/tassi-python.git
+
+# Autres dépendances de votre projet
+```
+
+Puis installez :
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Installation d'une version spécifique
+
+```bash
+# Tag/Release spécifique
+pip install git+https://github.com/Tassi-pro/tassi-python.git@v1.0.0
+
+# Branche spécifique
+pip install git+https://github.com/Tassi-pro/tassi-python.git@main
+
+# Commit spécifique
+pip install git+https://github.com/Tassi-pro/tassi-python.git@abc1234
+```
+
+#### Vérification de l'installation
+
+```bash
+python -c "from tassi import Tassi; print('Tassi SDK version:', Tassi.VERSION)"
+```
+
+**Sortie attendue :**
+```
+Tassi SDK version: 1.0.0
+```
+
+#### Mise à jour
+
+```bash
+pip install --upgrade git+https://github.com/Tassi-pro/tassi-python.git
+```
+
+#### Désinstallation
 
 ```bash
 pip install tassi
