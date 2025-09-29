@@ -29,6 +29,7 @@ wheels/
 htmlcov/
 .tox/
 .cache
+test_real_api.py
 
 # Environments
 .env
