@@ -88,12 +88,6 @@ Tassi SDK version: 1.0.0
 pip install --upgrade git+https://github.com/Tassi-pro/tassi-python.git
 ```
 
-#### Désinstallation
-
-```bash
-pip install tassi
-```
-
 ## Configuration
 
 ```python
